@@ -27,11 +27,24 @@ let userActive = getFromStorage("userActive")
 //
 function parseUser(userData) {
   const user = new User(
-    userData.firstname,
-    userData.lastname,
+    userData.firstName,
+    userData.lastName,
     userData.username,
-    userData.password
+    userData.password,
+
+    userData.pageSize,
+    userData.category
   );
 
   return user;
+}
+
+const todos = getFromStorage("todoArr") ? getFromStorage("todoArr") : [];
+console.log(todos);
+
+const todoArr = todos.map(todo => parserTask(todo));
+
+function parserTask(taskData) {
+  const task = new Task(taskData.task, taskData.owner, taskData.isDone);
+  return task;
 }
