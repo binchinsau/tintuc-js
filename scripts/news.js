@@ -12,7 +12,7 @@ if (userActive) {
     try {
       //gửi yêu cầu đến API NewsAPI và nhận lại dữ liệu tin tức
       const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=${country}&category=${userActive.category}&pageSize=${userActive.pageSize}&page=${page}&apiKey=13945f06b03a45309146bebdf691950f`
+        `https://newsapi.org/v2/top-headlines?country=${country}&category=${userActive.category}&pageSize=${userActive.pageSize}&page=${page}&apiKey=99c700c907994f488d1d993cdf1dc723`
       );
       //dữ liệu phản hồi được đọc thành công, kết quả sẽ được gán cho biến data
       //được gọi để đọc dữ liệu phản hồi dưới dạng JSON.
