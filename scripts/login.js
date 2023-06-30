@@ -28,12 +28,10 @@ btnSubmit.addEventListener("click", () => {
   // Kết quả kiểm tra được gán cho biến
   const isValidate = validate();
 
-  console.log(isValidate);
-
   //Nếu isValidate là true, tức là form hợp lệ.
   if (isValidate) {
     //Sử dụng phương thức find()
-    //để tìm kiếm trong mảng userArr xem có người dùng nào có username và password
+    //tìm kiếm trong mảng userArr xem có người dùng nào có username và password
     //trùng khớp với thông tin nhập vào hay không.
     const user = userArr.find(
       item =>

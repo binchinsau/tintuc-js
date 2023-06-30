@@ -13,22 +13,9 @@ const saveToStorage = (key, value) => {
 //lấy giá trị từ LocalStorage với key là "userArr".
 //Nếu giá trị tồn tại, gán giá trị đó vào biến users và ngược lại
 const users = getFromStorage("userArr") ? getFromStorage("userArr") : [];
-console.log(users);
-
-// tạo một mảng userArr mới bằng cách chuyển đổi từng phần tử
-// trong users thành đối tượng User thông qua hàm parseUser.
-const userArr = users.map(user => parseUser(user));
-
-console.log(userArr);
-
-//Lấy dữ liệu từ LocalStorage thông qua hàm getFromStorage
-// và chuyển đổi thành đối tượng User thông qua hàm parseUser
-let userActive = getFromStorage("userActive")
-  ? parseUser(getFromStorage("userActive"))
-  : null;
 
 //tạo đối tượng User từ dữ liệu người dùng
-function parseUser(userData) {
+const parseUser = userData => {
   //Sử dụng thông tin của tham số để khởi tại đối tượng user
   const user = new User(
     userData.firstName,
@@ -41,10 +28,20 @@ function parseUser(userData) {
   );
   // trả vè đối tượng user đã khởi tạo
   return user;
-}
+};
+
+//Lấy dữ liệu từ LocalStorage thông qua hàm getFromStorage
+// và chuyển đổi thành đối tượng User thông qua hàm parseUser
+let userActive = getFromStorage("userActive")
+  ? parseUser(getFromStorage("userActive"))
+  : null;
+
+// tạo một mảng userArr mới bằng cách chuyển đổi từng phần tử
+// trong users thành đối tượng User thông qua hàm parseUser.
+const userArr = users.map(user => parseUser(user));
+
 // Nếu dữ liệu không tồn tại, mảng sẽ được gán bằng một mảng rỗng
 const todos = getFromStorage("todoArr") ? getFromStorage("todoArr") : [];
-console.log(todos);
 
 //Sử dụng thông tin trong taskData để khởi tạo một đối tượng Task.
 function parserTask(taskData) {
