@@ -12,9 +12,9 @@ if (userActive) {
     try {
       //gửi yêu cầu đến API NewsAPI và nhận lại dữ liệu tin tức
       const res = await fetch(
-        `https://gnews.io/api/v4/top-headlines?category=${userActive.category}&country=${country}&max=10&apikey=bde751ee0784d161ad13d5e6df2b023a`
-        // `https://newsapi.org/v2/top-headlines?country=${country}&category=${userActive.category}&pageSize=${userActive.pageSize}&page=${page}&apiKey=99c700c907994f488d1d993cdf1dc723`
+        `https://gnews.io/api/v4/top-headlines?countries=${country}&category=${userActive.category}&max=${userActive.pageSize}&page=${page}&apikey=26520141eef7fdbe53c065902104ca8d`
       );
+
       //dữ liệu phản hồi được đọc thành công, kết quả sẽ được gán cho biến data
       //được gọi để đọc dữ liệu phản hồi dưới dạng JSON.
       const data = await res.json();
