@@ -12,7 +12,8 @@ if (userActive) {
     try {
       //gửi yêu cầu đến API NewsAPI và nhận lại dữ liệu tin tức
       const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=${country}&category=${userActive.category}&pageSize=${userActive.pageSize}&page=${page}&apiKey=99c700c907994f488d1d993cdf1dc723`
+        `https://gnews.io/api/v4/top-headlines?category=${userActive.category}&country=${country}&max=10&apikey=bde751ee0784d161ad13d5e6df2b023a`
+        // `https://newsapi.org/v2/top-headlines?country=${country}&category=${userActive.category}&pageSize=${userActive.pageSize}&page=${page}&apiKey=99c700c907994f488d1d993cdf1dc723`
       );
       //dữ liệu phản hồi được đọc thành công, kết quả sẽ được gán cho biến data
       //được gọi để đọc dữ liệu phản hồi dưới dạng JSON.
@@ -55,7 +56,7 @@ if (userActive) {
     // Nếu là true là đang ở trang cuối cùng
     const isLastPage =
       pageNum.textContent == Math.ceil(totalResults / userActive.pageSize);
-    // nếu là true thì đặt thành none và ngược lại
+    // nếu là true thì đặt none và ngược lại
     btnNext.style.display = isLastPage ? "none" : "block";
   };
 
@@ -88,9 +89,7 @@ if (userActive) {
       <div class="row no-gutters">
         <div class="col-md-4">
           <img src="${
-            articles.urlToImage
-              ? articles.urlToImage
-              : "/models/noimageavailable.png"
+            articles.image ? articles.image : "/models/noimageavailable.png"
           }"
             class="card-img"
             >
