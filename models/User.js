@@ -8,7 +8,7 @@ class User {
     this.username = username;
     this.password = password;
 
-    this.pageSize = pageSize = 10;
+    this.pageSize = pageSize;
     this.category = category;
   }
 }
