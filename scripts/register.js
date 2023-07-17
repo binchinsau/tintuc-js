@@ -61,7 +61,7 @@ btnSubmit.addEventListener("click", () => {
     inputLastname.value,
     inputPassword.value,
     inputUsername.value,
-inputConfirmpassword
+inputconfirmPassWord.value
   );
   //Gọi hàm validate để kiểm tra form hợp lệ
   const isValidate = validate(user);
